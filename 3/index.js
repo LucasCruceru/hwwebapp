@@ -5,7 +5,6 @@ var app = new Vue({
         logs:[],
         youH: 100,
         monsterH: 100,
-        logCount: 0
     },
     methods: {
         attack : function () {
@@ -39,14 +38,13 @@ var app = new Vue({
             this.winCheck();
         },
         registerLog:function(action, you, monster){
-            switch (action){
-                case "heal": this.logs[this.logCount] = ("You healed for " + you
-                    +" health and The Monster healed for " + monster + " health");
-                default: this.logs[this.logCount] = ("You did " + you
-                        +" damage and The Monster did " + monster + " damage");
-            }
-
-            this.logCount ++;
+                if(action === "heal"){
+                    this.logs.push("You healed for " + you
+                        + " health and The Monster healed for " + monster + " health");
+                }else{
+                    this.logs.push("You did " + you
+                        + " damage and The Monster did " + monster + " damage");
+                }
         },
         winCheck: function(){
             if (this.youH <= 0){
