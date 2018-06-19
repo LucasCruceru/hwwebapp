@@ -1,6 +1,15 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue!'
+        value: "",
+    },
+    methods: {
+        doOKD : function (event) {
+            this.value = event.target.value;
+        },
+        alert: function () {
+            alert("alert");
+        }
+
     }
 });

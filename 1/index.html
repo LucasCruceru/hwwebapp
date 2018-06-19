@@ -1,14 +1,28 @@
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 
 <div id="app">
-    {{ message }}
+    <div>
+        <button v-on:click="alert">Show alert</button>
+    </div>
+
+    <div>
+        <p>Type in your value</p>
+        <input type="text" v-on:keydown="doOKD">
+        <p>{{value}}</p>
+    </div>
+
+    <div>
+        <p>Type in your value</p>
+        <input type="text" v-on:keydown.enter="doOKD">
+        <p>{{value}}</p>
+    </div>
 </div>
 
 <script src="index.js"></script>
+
 </body>
 </html>
